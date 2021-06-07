@@ -4,12 +4,24 @@
 
 const { Router } = require('express');
 const router = Router();
-const {Recipe} = require('./src/db.js');
+const {Recipe} = require('../db.js');
 
 
 router.post('/', function(req, res){
-    console.log(req.body,"POST BODYYYYYYYYYYYYYYYY")
-    res.send("entro el get de types")
-});
+    if (req.body.name !== undefined && req.body.resume !== undefined && req.body.puntuation !== undefined){
+        Recipe.create({
+            name:`${req.body.name}`,
+            resume:`${req.body.resume}`,
+            puntuation:`${req.body.puntuation}`,
+        })
+        res.send("Nunca taxi")
+    }
+    else{
+        res.send("Falta un dato pa")
+    }
+    }
+)
+
+
 
 module.exports = router;

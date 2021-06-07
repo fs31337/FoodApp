@@ -10,8 +10,7 @@ router.get('/', async function(req, res){
      await Diet_type.findAll({attributes:['name']}).then(types =>
          types.map(type => typesArray.push(type.dataValues.name)))
     //  res.send("Types",{types}))
-    console.log(typesArray,"arreglooooooooooooooooooooooooooooooooo")
-    // res.send("entro el get de types")
+     res.send(typesArray);
 });
 
 module.exports = router;
