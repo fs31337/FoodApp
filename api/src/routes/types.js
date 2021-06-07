@@ -1,13 +1,17 @@
 const { Router } = require('express');
 const router = Router();
-// const {Diet_type} = require('./src/db.js')
-// const pepe = require('./src/db.js')
+const {Diet_type} = require('../db.js')
 
 
-router.get('/', function(req, res){
-    // Diet_type.findAll().then((types)=>
-    // res.render("Types",{types}))
-    res.send("entro el get de types")
+
+
+router.get('/', async function(req, res){
+    let typesArray = [];
+     await Diet_type.findAll({attributes:['name']}).then(types =>
+         types.map(type => typesArray.push(type.dataValues.name)))
+    //  res.send("Types",{types}))
+    console.log(typesArray,"arreglooooooooooooooooooooooooooooooooo")
+    // res.send("entro el get de types")
 });
 
 module.exports = router;
