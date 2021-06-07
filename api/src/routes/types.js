@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
-const {Diet_type} = require('../db.js')
+const {Diet_type} = require('../db.js');
+
 
 
 
