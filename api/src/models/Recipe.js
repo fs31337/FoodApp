@@ -29,10 +29,6 @@ module.exports = (sequelize) => {
       stepbystep: {
         type: DataTypes.TEXT,
       }
-    }// },
-    // {
-    //   //table options
-    //   initialAutoIncrement: 5432,
-    // }
+    }
   );
 };

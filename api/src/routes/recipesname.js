@@ -9,8 +9,7 @@ const {KEY} = process.env;
 router.get('/', function(req, res){
     const {name} = req.query;
     //controlar que name sea correcto
-    // axios.get(`https://api.spoonacular.com/recipes/complexSearch/?titleMatch=${name}&addRecipeInformation=true&apiKey=${KEY}&number=9`)
-    axios.get(`https://api.spoonacular.com/recipes/complexSearch/?titleMatch=${name}&apiKey=${KEY}&number=9`)
+    axios.get(`https://api.spoonacular.com/recipes/complexSearch/?titleMatch=${name}&apiKey=${KEY}&number=9`) //consultar si es legal el number=9
     .then(response => {
         if(response.data.results.length>0){
             res.send(response.data)
