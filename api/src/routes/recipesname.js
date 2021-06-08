@@ -8,16 +8,20 @@ const {KEY} = process.env;
 
 router.get('/', function(req, res){
     const {name} = req.query;
-    //controlar que name sea correcto
-    axios.get(`https://api.spoonacular.com/recipes/complexSearch/?titleMatch=${name}&apiKey=${KEY}&number=9`) //consultar si es legal el number=9
+    const nameok = name.charAt(0).toUpperCase() + name.toLowerCase().slice(1)
+
+    axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&addRecipeInformation=true`)//agregar number 100
     .then(response => {
-        if(response.data.results.length>0){
-            res.send(response.data)
-        }
-        else{
-            res.send("No existe ninguna receta que contenga el nombre ingresado")
-        }
-    }).catch(err => console.log('Error getting data from API', err) )
+        let arreglo = response.data.results.filter(recipe => recipe.title.includes(nameok));
+        
+
+         if(arreglo.length >0){
+              res.send(response.data)
+         }
+         else{
+             res.send("No se encontró ninguna receta con el nombre buscado")
+         }
+    }).catch(err => console.log('Error getting data from API', err))
 });
 
 module.exports = router;
