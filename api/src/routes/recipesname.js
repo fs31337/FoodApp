@@ -10,13 +10,13 @@ router.get('/', function(req, res){
     const {name} = req.query;
     const nameok = name.charAt(0).toUpperCase() + name.toLowerCase().slice(1)
 
-    axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&addRecipeInformation=true`)//agregar number 100
+    axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&number=100`) //&addRecipeInformation=true
     .then(response => {
         let arreglo = response.data.results.filter(recipe => recipe.title.includes(nameok));
-        
+        arreglo.splice(9,arreglo.length)
 
          if(arreglo.length >0){
-              res.send(response.data)
+              res.send(arreglo)
          }
          else{
              res.send("No se encontró ninguna receta con el nombre buscado")
