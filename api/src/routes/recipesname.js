@@ -14,7 +14,6 @@ router.get('/', function(req, res){
     .then(response => {
         let arreglo = response.data.results.filter(recipe => recipe.title.includes(nameok));
         arreglo.splice(9,arreglo.length)
-
          if(arreglo.length >0){
               res.send(arreglo)
          }
