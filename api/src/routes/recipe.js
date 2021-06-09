@@ -6,18 +6,29 @@ const { Router } = require('express');
 const router = Router();
 const {Recipe} = require('../db.js');
 
+function generateUUID() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+}
 
 router.post('/', function(req, res){
-    if (req.body.name !== undefined && req.body.resume !== undefined && req.body.puntuation !== undefined){
+    const {name,resume,puntuation} = req.body;
+    if (name !== undefined && resume !== undefined && puntuation !== undefined){
         Recipe.create({
-            name:`${req.body.name}`,
-            resume:`${req.body.resume}`,
-            puntuation:`${req.body.puntuation}`,
+            name:`${name}`,
+            id: generateUUID(`${name}`),
+            resume:`${resume}`,
+            puntuation:`${puntuation}`,
         })
-        res.send("Nunca taxi")
+        res.send("Receta Creada correctamente")
     }
     else{
-        res.send("Falta un dato pa")
+        res.send("Los datos ingresados son incorrectos o falta algun dato")
     }
     }
 )

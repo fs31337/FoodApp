@@ -10,11 +10,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      ID: {
-        type: DataTypes.INTEGER,
+      id: {
+        type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
       },
       resume: {
         type: DataTypes.TEXT,

@@ -22,6 +22,7 @@ const { conn } = require('./src/db.js');
 const {Diet_type} = require('./src/db.js')
 
 
+
 // Syncing all the models at once.
 conn.sync({ force: true })
 .then(() => {
