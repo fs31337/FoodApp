@@ -5,6 +5,7 @@ const recipesname = require('./recipesname.js');
 const recipeId = require('./recipeId.js');
 const types = require('./types.js');
 const recipe = require('./recipe.js');
+const principal = require('./principal.js');
 
 const router = Router();
 
@@ -14,4 +15,5 @@ router.use('/recipesname',recipesname);
 router.use('/recipeId',recipeId);
 router.use('/types',types);
 router.use('/recipe',recipe);
+router.use('/principal',principal);
 module.exports = router;

@@ -5,6 +5,9 @@
 const { Router } = require('express');
 const router = Router();
 const {Recipe} = require('../db.js');
+const { conn } = require('../db.js');
+const {Diet_type} = require('../db.js');
+
 
 function generateUUID() {
     var d = new Date().getTime();
@@ -17,13 +20,17 @@ function generateUUID() {
 }
 
 router.post('/', function(req, res){
-    const {name,resume,puntuation} = req.body;
-    if (name !== undefined && resume !== undefined && puntuation !== undefined){
-        Recipe.create({
-            name:`${name}`,
-            id: generateUUID(`${name}`),
-            resume:`${resume}`,
-            puntuation:`${puntuation}`,
+    const {name,resume,diet} = req.body;
+    if (name !== undefined && resume !== undefined && diet !== undefined){
+        // la dieta va a venir por formulario. y la uso para relacionarla con dietTypes db
+        conn.sync({alter:true}).then(async () => {
+            const recipe = await Recipe.create({
+                name:`${name}`,
+                id: generateUUID(`${name}`),
+                resume:`${resume}`,
+            })
+            const dietdb = await Diet_type.findOne({ where: { name: `${diet}` } });
+            await dietdb.setRecipes(recipe)
         })
         res.send("Receta Creada correctamente")
     }
