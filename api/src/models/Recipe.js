@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
       puntuation: {
         type: DataTypes.INTEGER,
       },
-      HealthyLevel: {
+      healthyLevel: {
         type: DataTypes.INTEGER,
       },
       stepbystep: {
