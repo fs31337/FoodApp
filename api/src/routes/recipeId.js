@@ -31,7 +31,7 @@ router.get("/:id", function (req, res) {
         .then((response) => {
           DataArray.push({
             image: response.data.image,
-            name: response.data.title,
+            title: response.data.title,
             type: response.data.dishTypes,
             diets: response.data.diets,
             resume: response.data.summary,
@@ -52,13 +52,13 @@ router.get("/:id", function (req, res) {
       }
       else{
           let resp = {
-            name : respuesta.dataValues.name,
+            title : respuesta.dataValues.name,
             resume: respuesta.dataValues.resume,
             puntuation: respuesta.dataValues.puntuation,
             healthScore: respuesta.dataValues.healthyLevel,
             stepbystep: respuesta.dataValues.stepbystep,
         }
-          return res.send(resp)
+          return res.send([resp])
       }})}
 });
 

@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const {Diet_type} = require('./src/db.js')
+const {Diet_type,Recipe} = require('./src/db.js')
 
 
 
@@ -57,7 +57,14 @@ conn.sync({ force: true })
     var Whole30 = Diet_type.create({
       name: "Whole30"
     });
-    Promise.all([GlutenFree,Ketogenic,Vegetarian,Lacto_Vegetarian,Ovo_Vegetarian,Vegan,Pescetarian,Paleo,Primal,Whole30])
+    var DemoRecipe = Recipe.create({
+      id: "a98383ivjidj9239283idjf",
+      name: "Roberto Carlos",
+      resume: "askdakjsdkajskdjaksjd",
+      puntuation: 2,
+      diet: ["Ketogenic","Vegan","Vegetarian"]
+    });
+    Promise.all([GlutenFree,Ketogenic,Vegetarian,Lacto_Vegetarian,Ovo_Vegetarian,Vegan,Pescetarian,Paleo,Primal,Whole30,DemoRecipe])
       .then(res =>{
         console.log("Precarga de types exitosa!!")
       });

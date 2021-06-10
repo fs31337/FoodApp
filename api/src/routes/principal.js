@@ -14,11 +14,12 @@ router.get("/", function (req, res) {
         {
             img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/960/261/products/img_20771-28bc83694oZm7wXGxW1GPwAgprMBjCDDTCztHN1-1024-1024.jpg",
             title: recipe.dataValues.name,
-            diet: recipe.dataValues.diet_types//MOSTRAR DIETA QUE LE CORRESPONDE
+            diet: recipe.dataValues.diet_types,
+            id: recipe.dataValues.id
         }
         )))
         // recipesDb.diet = recipesDb.diet.map(tipo => tipo.name)
-        axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&number=100&addRecipeInformation=true`)
+        axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&number=5&addRecipeInformation=true`) //ORIGINAL NUMBER=100
         .then((response) => {
             let nuevaResponse=[];
             let nuevoArreglo =[];
@@ -33,11 +34,12 @@ router.get("/", function (req, res) {
                     img: data.image,
                     title: data.title,
                     diet:data.diets,
+                    id:data.id,
                     puntuation: data.spoonacularScore, //esto no lo muestro pero lo uso para filtar
                 }
                 ))
         })
-            res.send([...nuevaResponse, ...recipesDb])
+            res.json([...nuevaResponse, ...recipesDb]) //retornaba vacio cuando no tenia recipes, cree una por defecto inicial.
         })
         .catch((err) => console.log("Error getting data from API", err))
 });
