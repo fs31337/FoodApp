@@ -14,6 +14,9 @@ export function getRecipeDetail(id) {
         axios.get(`http://localhost:3001/recipeId/${id}`)
         .then(response =>{
             dispatch({type: SET_RECIPE_DETAIL, payload:response.data})
+        }).catch((error)=> {
+            if(error.response?.status !== 404) alert("No se encontro el detalle del Id")
+            dispatch({ type: SET_RECIPE_DETAIL, payload:null})
         })
     }
 }
