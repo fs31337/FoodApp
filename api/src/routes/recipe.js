@@ -35,6 +35,7 @@ router.post('/', function(req, res){
             }
             //como buscar varias diet en Diet_type,
         })
+
         res.send("Receta Creada correctamente")
     }
     else{
