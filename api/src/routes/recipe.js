@@ -29,13 +29,12 @@ router.post('/', function(req, res){
                 id: generateUUID(`${name}`),
                 resume:`${resume}`,
             })
-            diet.map(async type => {
-                const dietdb = await Diet_type.findAll({ where: { name: type} }); //cambio findOne
-                await dietdb.setRecipes(recipe)
-            })
+            for (let i=0; i < diet.length;i++){
+                const dietdb = await Diet_type.findOne({ where: { name: diet[i]} }); //cambio findOne
+                await dietdb.addRecipe(recipe);
+            }
             //como buscar varias diet en Diet_type,
         })
-
         res.send("Receta Creada correctamente")
     }
     else{
