@@ -20,18 +20,25 @@ router.get("/", function (req, res) {
         // recipesDb.diet = recipesDb.diet.map(tipo => tipo.name)
         axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&number=100&addRecipeInformation=true`)
         .then((response) => {
+            let nuevaResponse=[];
             let nuevoArreglo =[];
             recipesDb.map(recipe => {recipe.diet.map(tipo =>{
                 nuevoArreglo.push(tipo.dataValues.name)
                 recipe.diet = nuevoArreglo;
             })
             nuevoArreglo = []
-        })
 
-            console.log(recipesDb,"DESPUES")
-            res.send([response.data, ...recipesDb])
+            response.data.results.map(data => nuevaResponse.push(
+                {
+                    img: data.image,
+                    title: data.title,
+                    diet:data.diets,
+                    puntuation: data.spoonacularScore, //esto no lo muestro pero lo uso para filtar
+                }
+                ))
+        })
+            res.send([...nuevaResponse, ...recipesDb])
         })
         .catch((err) => console.log("Error getting data from API", err))
 });
-
 module.exports = router;
