@@ -41,14 +41,14 @@ router.get("/:id", function (req, res) {
           });
         })
         .then(() => {return res.send(DataArray)})
-        .catch((err) => {return res.send("ID no encontrado en API")});
+        .catch((err) => {return res.sendStatus(404)});
     }
   else{
     Recipe.findOne({ where: { id: id } })
     .then(response =>{
         let respuesta = response;
       if(!respuesta){
-           return res.send("No encontrado en base de datos")
+           return res.sendStatus(404)
       }
       else{
           let resp = {
