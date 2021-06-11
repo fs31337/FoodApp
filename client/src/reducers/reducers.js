@@ -1,5 +1,4 @@
 import {SET_RECIPES, SET_RECIPE_DETAIL} from '../actions/actionsNames';
-//SEPARAR REDUCER Y STATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE--------------------------------------------
 
 const initialState = {
     recipes: undefined,

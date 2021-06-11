@@ -5,12 +5,6 @@ const router = Router();
 const { Recipe } = require("../db.js");
 const { KEY } = process.env;
 
-//Esta ruta debe mostrar
-// (imagen, nombre, tipo de plato y tipo de dieta)
-// Resumen del plato
-// Puntuación
-// Nivel de "comida saludable"
-// Paso a paso
 let letras="abcdefghyjklmnñopqrstuvwxyz";
 
 function tiene_letras(texto){
@@ -30,7 +24,7 @@ router.get("/:id", function (req, res) {
         axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${KEY}`)
         .then((response) => {
           DataArray.push({
-            image: response.data.image,
+            img: response.data.image,
             title: response.data.title,
             type: response.data.dishTypes,
             diets: response.data.diets,
@@ -52,6 +46,7 @@ router.get("/:id", function (req, res) {
       }
       else{
           let resp = {
+            // img : respuesta.dataValues.img, PONER ALGUNA IMAGEN POR DEFECTO
             title : respuesta.dataValues.name,
             resume: respuesta.dataValues.resume,
             puntuation: respuesta.dataValues.puntuation,
