@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
     Recipe.findAll({include:[Diet_type]})
     .then(response => response.map((recipe) => recipesDb.push(
         {
-            img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/960/261/products/img_20771-28bc83694oZm7wXGxW1GPwAgprMBjCDDTCztHN1-1024-1024.jpg",
+            img: recipe.dataValues.img,
             title: recipe.dataValues.name,
             diet: recipe.dataValues.diet_types,
             id: recipe.dataValues.id

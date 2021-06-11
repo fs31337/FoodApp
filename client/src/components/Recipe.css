@@ -1,0 +1,12 @@
+.recipe {
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    margin:10px
+}
+.recipe  h1 {
+    size:1px
+    font-style
+}

@@ -33,7 +33,6 @@ router.post('/', function(req, res){
                 const dietdb = await Diet_type.findOne({ where: { name: diet[i]} }); //cambio findOne
                 await dietdb.addRecipe(recipe);
             }
-            //como buscar varias diet en Diet_type,
         })
 
         res.send("Receta Creada correctamente")

@@ -59,10 +59,11 @@ conn.sync({ force: true })
     });
     var DemoRecipe = Recipe.create({
       id: "a98383ivjidj9239283idjf",
-      name: "Roberto Carlos",
-      resume: "askdakjsdkajskdjaksjd",
-      puntuation: 2,
-      diet: ["Ketogenic","Vegan","Vegetarian"]
+      name: "Burbuja",
+      resume: "Burbuja (Bubbles en la versión en inglés) es una de las protagonistas de la serie animada The Powerpuff Girls, junto con sus hermanas Bombón/Pétalo y Bellota/Cactus. Ella es la alegría y la risa, siendo el pegamento emocional que une al trío de superhéroinas. Ella es el ingrediente azúcar de las tres.",
+      puntuation: 777,
+      diet: ["Vegan","Vegetarian"],
+      img:"https://zonakidz.files.wordpress.com/2008/10/burbuja14.jpg",
     });
     Promise.all([GlutenFree,Ketogenic,Vegetarian,Lacto_Vegetarian,Ovo_Vegetarian,Vegan,Pescetarian,Paleo,Primal,Whole30,DemoRecipe])
       .then(res =>{

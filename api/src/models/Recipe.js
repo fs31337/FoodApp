@@ -27,6 +27,9 @@ module.exports = (sequelize) => {
       },
       stepbystep: {
         type: DataTypes.TEXT,
+      },
+      img: {
+        type: DataTypes.STRING,
       }
     }
   );
