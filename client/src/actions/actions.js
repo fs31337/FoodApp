@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SET_RECIPES,SET_RECIPE_DETAIL } from "./actionsNames"
+import { SET_RECIPES,SET_RECIPE_DETAIL } from "./actionsNames";
 
-export function getAllRecipes() {
+ export default function getAllRecipes() {
     return (dispatch) => {                 //dispatch porque es una funcion asyncrona en una action (ver clase REDUX async actions)
         axios.get('http://localhost:3001/principal')
         .then(response =>{
@@ -9,7 +9,8 @@ export function getAllRecipes() {
         })
     }
 }
-export function getRecipeDetail(id) {
+
+ export function getRecipeDetail(id) {
     return (dispatch) => {                 //dispatch porque es una funcion asyncrona en una action (ver clase REDUX async actions)
         axios.get(`http://localhost:3001/recipeId/${id}`)
         .then(response =>{
@@ -20,7 +21,8 @@ export function getRecipeDetail(id) {
         })
     }
 }
-export function clearRecipe() {
+
+ export function clearRecipe() {
     return {
             type: SET_RECIPE_DETAIL, payload:undefined //Lo uso para limpiar el detalle cuando se desmonte.
         }

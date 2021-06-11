@@ -5,7 +5,6 @@ import RecipeDetail from "./RecipeDetail";
 
 function App() {
   return (
-
     <div className="App">
       <h1>Henry Food</h1>
       <Route path="/" exact component={Home}/>
@@ -13,5 +12,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

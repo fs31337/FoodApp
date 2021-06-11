@@ -1,6 +1,4 @@
-import {createStore,applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import {SET_RECIPES, SET_RECIPE_DETAIL} from './actionsNames';
+import {SET_RECIPES, SET_RECIPE_DETAIL} from '../actions/actionsNames';
 //SEPARAR REDUCER Y STATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE--------------------------------------------
 
 const initialState = {
@@ -27,6 +25,4 @@ function reducer(state = initialState, action){
         }
     }
 }
-
-const store = createStore(reducer,applyMiddleware(thunk));
-export default store;
+export default reducer;

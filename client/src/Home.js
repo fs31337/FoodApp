@@ -1,10 +1,8 @@
 import { useDispatch,useSelector }  from 'react-redux';
-import { useEffect } from 'react';
-import { getAllRecipes } from './actions';
-import {Link} from 'react-router-dom'
+import { React, useEffect } from 'react';
+import getAllRecipes  from './actions/actions.js';
+import {Link} from 'react-router-dom';
 
-
-import React from 'react'
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -13,7 +11,6 @@ export default function Home() {
     useEffect(() =>{
         dispatch(getAllRecipes())
     },[dispatch])
-
     return (
         <div>
             <ul>
@@ -28,3 +25,4 @@ export default function Home() {
         </div>
     )
 }
+
