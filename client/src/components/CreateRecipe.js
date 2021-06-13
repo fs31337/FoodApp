@@ -57,9 +57,9 @@ function CreateRecipe() {
     //desmarcar los checkbox
   }
 
-  //   if(response!==undefined){
-  //       alert(response)
-  //   }
+    if(response!==undefined){
+        alert(response)
+    }
 
   return (
     <div className="form-container">

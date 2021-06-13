@@ -20,7 +20,7 @@ function generateUUID() {
 }
 
 router.post('/', function(req, res){
-    const {name,resume,diet} = req.body;
+    const {name,resume,diet,healthyLevel,stepbystep,puntuation} = req.body;
     if (name !== undefined && resume !== undefined && diet !== undefined){
         // la dieta va a venir por formulario. y la uso para relacionarla con dietTypes db
         conn.sync({alter:true}).then(async () => {
@@ -29,8 +29,8 @@ router.post('/', function(req, res){
                 id: generateUUID(`${name}`),
                 resume:`${resume}`,
                 healthyLevel:`${healthyLevel}`,
-                stepbystep:`${stepbystep}`
-
+                stepbystep:`${stepbystep}`,
+                puntuation:`${puntuation}`,
             })
             for (let i=0; i < diet.length;i++){
                 const dietdb = await Diet_type.findOne({ where: { name: diet[i]} }); //cambio findOne
