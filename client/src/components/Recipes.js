@@ -9,17 +9,11 @@ function Recipes({ recipes }) {
     const [currentPage,setCurrentPage] = useState(1);
     const [recipesPerPage,setRecipesPerPage] = useState(2);
 
-    // useEffect(() => {
-    //     setLoading(true);
-        //fetch
-        //setLoading(false);
-    // })
     const indexOfLastRecipe = currentPage  * recipesPerPage;
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
     const currentRecipes = recipes.slice(indexOfFirstRecipe,indexOfLastRecipe);
     //change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
 
 
   return (

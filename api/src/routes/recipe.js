@@ -28,6 +28,9 @@ router.post('/', function(req, res){
                 name:`${name}`,
                 id: generateUUID(`${name}`),
                 resume:`${resume}`,
+                healthyLevel:`${healthyLevel}`,
+                stepbystep:`${stepbystep}`
+
             })
             for (let i=0; i < diet.length;i++){
                 const dietdb = await Diet_type.findOne({ where: { name: diet[i]} }); //cambio findOne

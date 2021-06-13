@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, React } from "react";
-import { getRecipeDetail, clearRecipe } from "./actions/actions";
+import { getRecipeDetail, clearRecipe } from "../actions/actions";
 import { useParams } from "react-router-dom";
 
 function RecipeDetail() {
