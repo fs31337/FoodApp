@@ -6,12 +6,15 @@ import Recipes from './Recipes';
 
 
 export default function Home() {
+
     const dispatch = useDispatch();
     const recipes = useSelector(state => state.recipes)
 
     useEffect(() =>{
         dispatch(getAllRecipes())
     },[dispatch])
+
+
     return (
             Array.isArray(recipes) ? <div className="recipes-container"><Recipes recipes={recipes}/></div> : <h1>Cargando...</h1>
         )

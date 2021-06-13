@@ -11,5 +11,4 @@ function Recipe({title,id,img,diet}) {
         </div>
     )
 }
-
 export default Recipe
