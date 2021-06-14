@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
+  h1 {
+    font: 400 36px/1.2 "Sansita one", Georgia, serif;
+  }
+  p {
+    font: 400 17px/1.6 "Kameron", Georgia, serif;
+  }
+}
+.create-Recipe {
+  text-decoration: none;
+  font-style: none;
+  color: white;
+  :hover {
+    color: #ED6856;
+    transform: scale(1.01);
+    transition: 1s ;
+}
+}
+.foods-Button {
+  text-decoration: none;
+  font-style: none;
+  color: white;
+  :hover {
+      color: #ED6856;
+      transform: scale(1.01);
+      transition: 1s;
+    }
+}

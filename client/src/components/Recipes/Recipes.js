@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Recipe from "./Recipe";
+import Recipe from "../Recipe/Recipe";
 import Pagination from './Pagination';
 import "./Recipes.css";
 
@@ -14,7 +14,6 @@ function Recipes({ recipes }) {
     const currentRecipes = recipes.slice(indexOfFirstRecipe,indexOfLastRecipe);
     //change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
 
   return (
     <div className="recipe-container">
