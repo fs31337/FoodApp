@@ -4,8 +4,6 @@ import Pagination from "./Pagination";
 import "./Recipes.scss";
 
 function Recipes({ recipes }) {
-  // const [recipeList,setRecipesList] = useState(recipes);
-  // const [loading,setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(2);
   const [search, setSearch] = useState("");
@@ -45,6 +43,7 @@ function Recipes({ recipes }) {
     }
   }
 
+
   //Sort
   const sorted = filteredbyDiet(recipes).sort((a, b) => {
     if (sortType === "az" || sortType === "za") {
@@ -79,19 +78,22 @@ function Recipes({ recipes }) {
         value={search}
         onChange={onSearchChange}
       />
-      <button className="azButton" onClick={() => setSortType("az")}>
-        Sort Name Asc
-      </button>
-      <button className="zaButton" onClick={() => setSortType("za")}>
-        Sort Name Desc
-      </button>
-      <button className="puntmintomax" onClick={() => setSortType("puntmintomax")}>
-        Sort Puntuation Asc
-      </button>
-      <button className="puntmaxtomin" onClick={() => setSortType("puntmaxtomin")}>
-        Sort Puntuation Desc
-      </button>
+      <div className="sort">
+        <button className="azButton" onClick={() => setSortType("az")}>
+          Sort Name Asc
+        </button>
+        <button className="zaButton" onClick={() => setSortType("za")}>
+          Sort Name Desc
+        </button>
+        <button className="puntmintomax" onClick={() => setSortType("puntmintomax")}>
+          Sort Puntuation Asc
+        </button>
+        <button className="puntmaxtomin" onClick={() => setSortType("puntmaxtomin")}>
+          Sort Puntuation Desc
+        </button>
+      </div>
       {/* Dietas */}
+      <div className="Diets">
       <button className="vegetarian" onClick={() => setDietFilter(["vegetarian"])}>
         Vegetarian
       </button>
@@ -101,6 +103,32 @@ function Recipes({ recipes }) {
       <button className="primal" onClick={() => setDietFilter(["primal"])}>
         Primal
       </button>
+      <button className="gluten-free" onClick={() => setDietFilter(["gluten"])}>
+        Gluten-Free
+      </button>
+      <button className="lacto-vegetarian" onClick={() => setDietFilter(["lacto"])}>
+        Lacto-Veg
+      </button>
+      <button className="ovo-vegetarian" onClick={() => setDietFilter(["ovo"])}>
+        Ovo-Veg
+      </button>
+      <button className="pescetarian" onClick={() => setDietFilter(["pescetarian"])}>
+        Pescetarian
+      </button>
+      <button className="whole-30" onClick={() => setDietFilter(["whole 30"])}>
+        Whole-30
+      </button>
+      <button className="ketogenic" onClick={() => setDietFilter(["ketogenic"])}>
+        Ketogenic
+      </button>
+      <button className="paleo" onClick={() => setDietFilter(["paleo"])}>
+        Paleo
+      </button>
+      <button className="default" onClick={() => setDietFilter([])}>
+        None
+      </button>
+      </div>
+
       <div className="recipe-container">
         {Array.isArray(currentRecipes) ? (
           currentRecipes.map((recipe) => (
@@ -117,7 +145,7 @@ function Recipes({ recipes }) {
       </div>
       <Pagination
         recipesPerPage={recipesPerPage}
-        totalRecipes={recipes.length}
+        totalRecipes={sorted.length}
         paginate={paginate}
       />
     </div>
