@@ -5,7 +5,6 @@ const initialState = {
     recipeDetail: undefined,
     createRecipeResponse: undefined,
 }
-
 function reducer(state = initialState, action){
     switch (action.type){
         case SET_RECIPES:{

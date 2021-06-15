@@ -16,16 +16,16 @@ function CreateRecipe() {
   });
 
   let [diets, setDiets] = useState({
-    Vegetarian: false,
-    Vegan: false,
-    Ketogenic: false,
-    // "Lacto-Vegetarian":false,
-    // "Ovo-Vegetarian":false,
-    // "Pescetarian":false,
-    // "Paleo":false,
-    // "Primal":false,
-    // "Whole":false,
-    // "Gluten Free":false,
+    "Vegetarian": false,
+    "Vegan": false,
+    "Ketogenic": false,
+    "Lacto-Vegetarian":false,
+    "Ovo-Vegetarian":false,
+    "Pescetarian":false,
+    "Paleo":false,
+    "Primal":false,
+    "Whole":false,
+    "Gluten Free":false,
   });
 
   let checkboxClick = (e) => {
@@ -62,18 +62,6 @@ function CreateRecipe() {
       stepbystep: "",
       diet: [],
     });
-    // setDiets({
-    //   "Vegetarian": false,
-    //   "Vegan": false,
-    //   "Ketogenic": false,
-    //   "Lacto-Vegetarian":false,
-    //   "Ovo-Vegetarian":false,
-    //   "Pescetarian":false,
-    //   "Paleo":false,
-    //   "Primal":false,
-    //   "Whole":false,
-    //   "Gluten Free":false,
-    // })
   }
   // if (response !== undefined) {
     //   alert(response);

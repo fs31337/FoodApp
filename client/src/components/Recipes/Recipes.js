@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Recipe from "../Recipe/Recipe";
 import Pagination from "./Pagination";
 import "./Recipes.css";
@@ -9,14 +9,14 @@ function Recipes({ recipes }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage, setRecipesPerPage] = useState(2);
   const [search, setSearch] = useState("");
-  console.log(recipes,"recipesssssssssss")
   //SearchFilter
   function filteredRecipes(recipes) {
     if(search.length === 0){
        return recipes
+    }else{
+      const filtered = recipes.filter(recipe => recipe.title.toLowerCase().includes(search.toLowerCase()));
+      return filtered;
     }
-    const filtered = recipes.filter(recipe => recipe.title.toLowerCase().includes(search.toLowerCase()));
-    return filtered;
   };
   const onSearchChange = (e) => {
     setCurrentPage(1);
