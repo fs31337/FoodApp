@@ -15,7 +15,8 @@ router.get("/", function (req, res) {
             img: recipe.dataValues.img,
             title: recipe.dataValues.name,
             diet: recipe.dataValues.diet_types,
-            id: recipe.dataValues.id
+            id: recipe.dataValues.id,
+            puntuation:recipe.dataValues.puntuation
         }
         )))
         axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&number=5&addRecipeInformation=true`) //ORIGINAL NUMBER=100
@@ -27,7 +28,7 @@ router.get("/", function (req, res) {
                     title: data.title,
                     diet:data.diets,
                     id:data.id,
-                    puntuation: data.spoonacularScore, //esto no lo muestro pero lo uso para filtar
+                    puntuation: data.weightWatcherSmartPoints, //esto no lo muestro pero lo uso para filtar // "spoonacular score" eran todos 99 por eso uso este otro puntaje.
                 }
                 ))
             let nuevoArreglo =[];

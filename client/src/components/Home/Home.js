@@ -19,4 +19,3 @@ export default function Home() {
             Array.isArray(recipes) ? <div className="recipes-container"><Recipes recipes={recipes}/></div> : <h1>Cargando...</h1>
         )
 }
-
