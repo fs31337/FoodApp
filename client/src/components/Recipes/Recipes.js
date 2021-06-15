@@ -9,7 +9,7 @@ function Recipes({ recipes }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage, setRecipesPerPage] = useState(2);
   const [search, setSearch] = useState("");
-
+  console.log(recipes,"recipesssssssssss")
   //SearchFilter
   function filteredRecipes(recipes) {
     if(search.length === 0){
@@ -23,7 +23,6 @@ function Recipes({ recipes }) {
     setSearch(e.target.value)
   }
   //Paginate
-  console.log(filteredRecipes(recipes),"filtered recipessss")
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = filteredRecipes(recipes).slice(

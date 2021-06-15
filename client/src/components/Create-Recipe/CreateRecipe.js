@@ -19,6 +19,13 @@ function CreateRecipe() {
     Vegetarian: false,
     Vegan: false,
     Ketogenic: false,
+    // "Lacto-Vegetarian":false,
+    // "Ovo-Vegetarian":false,
+    // "Pescetarian":false,
+    // "Paleo":false,
+    // "Primal":false,
+    // "Whole":false,
+    // "Gluten Free":false,
   });
 
   let checkboxClick = (e) => {
@@ -55,15 +62,25 @@ function CreateRecipe() {
       stepbystep: "",
       diet: [],
     });
-    //desmarcar los checkbox
+    // setDiets({
+    //   "Vegetarian": false,
+    //   "Vegan": false,
+    //   "Ketogenic": false,
+    //   "Lacto-Vegetarian":false,
+    //   "Ovo-Vegetarian":false,
+    //   "Pescetarian":false,
+    //   "Paleo":false,
+    //   "Primal":false,
+    //   "Whole":false,
+    //   "Gluten Free":false,
+    // })
   }
+  // if (response !== undefined) {
+    //   alert(response);
+  // }
 
-  if (response !== undefined) {
-    alert(response);
-  }
-
-  return (
-    <div className="form-container">
+    return (
+      <div className="form-container">
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
         <p>Ingresa un nombre para tu receta</p>
         <input
