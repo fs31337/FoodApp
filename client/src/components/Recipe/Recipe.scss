@@ -30,14 +30,14 @@
   }
   img {
     width: 15.625em;
-    height: 12.5em;
+    height: 11.5681em;
     max-width: 15.625em;
-    max-height: 12.5em;
+    max-height: 11.5681em;
     margin: 0;
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
   }
-  .separador {
+  .recipe-text__separador {
     margin:5px 0 5px 0;
     width: 64px;
     height: 3px;
@@ -46,8 +46,15 @@
     background: #c4c4c4;
     border-radius: 55px;
   }
-  .link {
+  .recipe-text__link {
     text-decoration: none;
     font-style: none;
+  }
+  .recipe-text{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
   }
 }
