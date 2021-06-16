@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SET_RECIPES,SET_RECIPE_DETAIL, SET_CLEAR_RECIPE_RESPONSE,SET_CREATE_RECIPE_RESPONSE} from "./actionsNames";
+import { SET_RECIPES,SET_RECIPE_DETAIL} from "./actionsNames";
 
  export default function getAllRecipes() {
     return (dispatch) => {
@@ -21,21 +21,6 @@ import { SET_RECIPES,SET_RECIPE_DETAIL, SET_CLEAR_RECIPE_RESPONSE,SET_CREATE_REC
         })
     }
 }
-
- export function createRecipe(form) {
-    return (dispatch) => {
-        axios.post("http://localhost:3001/recipe",form)
-        .then(response =>{
-            dispatch({type: SET_CREATE_RECIPE_RESPONSE, payload:response.data})
-        })
-    }
-}
-
- export function clearRecipeResponse() {
-    return   {
-            type: SET_CLEAR_RECIPE_RESPONSE, payload:undefined
-        }
-    }
 
  export function clearRecipe() {
     return {

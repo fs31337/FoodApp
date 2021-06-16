@@ -1,9 +1,8 @@
-import {SET_RECIPES, SET_RECIPE_DETAIL,SET_CLEAR_RECIPE_RESPONSE,SET_CREATE_RECIPE_RESPONSE} from '../actions/actionsNames';
+import {SET_RECIPES, SET_RECIPE_DETAIL} from '../actions/actionsNames';
 
 const initialState = {
     recipes: undefined,
     recipeDetail: undefined,
-    createRecipeResponse: undefined,
 }
 function reducer(state = initialState, action){
     switch (action.type){
@@ -17,17 +16,6 @@ function reducer(state = initialState, action){
             return {
                 ...state,
                 recipeDetail: action.payload
-            }
-        }
-        case SET_CLEAR_RECIPE_RESPONSE:{
-            return {
-                recipeDetail: undefined
-            }
-        }
-        case SET_CREATE_RECIPE_RESPONSE:{
-            return {
-                ...state,
-                createRecipeResponse: action.payload
             }
         }
         default: {

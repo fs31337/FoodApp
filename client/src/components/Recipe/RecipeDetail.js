@@ -39,7 +39,6 @@ function RecipeDetail() {
       </div>
     );
   }
-
 }
 
 export default RecipeDetail;

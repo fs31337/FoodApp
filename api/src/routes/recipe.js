@@ -21,8 +21,6 @@ function generateUUID() {
 
 router.post('/', function(req, res){
     const {name,resume,diet,healthyLevel,stepbystep,puntuation} = req.body;
-    if (name !== undefined && resume !== undefined && diet !== undefined){
-        // la dieta va a venir por formulario. y la uso para relacionarla con dietTypes db
         conn.sync({alter:true}).then(async () => {
             const recipe = await Recipe.create({
                 name:`${name}`,
@@ -37,12 +35,7 @@ router.post('/', function(req, res){
                 await dietdb.addRecipe(recipe);
             }
         })
-
-        res.send("200")
-    }
-    else{
-        res.send("400")
-    }
+        res.send("Receta creada correctamente")
     }
 )
 

@@ -1,10 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createRecipe } from "../../actions/actions.js";
 
 function CreateRecipe() {
-  const dispatch = useDispatch();
-  const response = useSelector((state) => state.createRecipeResponse);
   const [state, setState] = useState({
     name: "",
     resume: "",
@@ -43,19 +40,6 @@ function CreateRecipe() {
     });
   };
 
-  function handleSubmit(e) {
-    if(mostrarDietas.length<1){
-      alert("Debes seleccionar al menos una Dieta")
-    }
-    if(mostrarDietas.length>=1){
-      setState((state.diet = mostrarDietas));
-      dispatch(createRecipe(state));
-      e.preventDefault();
-      clearState();
-      setDiets(initialState);
-      }
-    }
-
   function clearState() {
     setState({
       name: "",
@@ -66,6 +50,23 @@ function CreateRecipe() {
       diet: [],
     });
   }
+
+  function handleSubmit(e) {
+    if(mostrarDietas.length<1){
+      alert("Debes seleccionar al menos una Dieta")
+    }
+    if(mostrarDietas.length>=1){
+      e.preventDefault();
+      setState((state.diet = mostrarDietas));
+      axios.post("http://localhost:3001/recipe",state)
+        .then(response =>{
+            alert(response.data)
+        })
+      clearState();
+      setDiets(initialState);
+      }
+    }
+
     return (
       <div className="form-container">
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
@@ -95,11 +96,14 @@ function CreateRecipe() {
         ></input>
         <p>Ingresa un puntaje de tu receta</p>
         <input
+          type="number"
+          min="1"
+          max="100"
+          step="1"
           name="puntuation"
           key="puntuation"
           className="input-puntuation"
           placeholder="Puntuacion..."
-          type="text"
           autoComplete="off"
           value={state.puntuation}
           onChange={(e) => handleInputChange(e)}
@@ -111,7 +115,10 @@ function CreateRecipe() {
           key="healthyLevel"
           className="input-healthy"
           placeholder="Healthy..."
-          type="text"
+          type="number"
+          min="1"
+          max="100"
+          step="1"
           id="healthy"
           autoComplete="off"
           value={state.healthyLevel}
@@ -150,7 +157,6 @@ function CreateRecipe() {
             ))}
         </div>
         <button type="submit">Submit</button>
-      {response === "200" ? <div>Creado Correctamente</div>: response=== "400" ? <div>Error</div>:<div>Creando</div>}
       </form>
     </div>
   );
