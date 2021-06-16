@@ -78,58 +78,57 @@ function Recipes({ recipes }) {
         value={search}
         onChange={onSearchChange}
       />
-      <div className="sort">
-        <button className="azButton" onClick={() => setSortType("az")}>
+      <div className="sort" key="sort">
+        <button key="azButton" className="azButton" onClick={() => setSortType("az")}>
           Sort Name Asc
         </button>
-        <button className="zaButton" onClick={() => setSortType("za")}>
+        <button className="zaButton" key="zaButton" onClick={() => setSortType("za")}>
           Sort Name Desc
         </button>
-        <button className="puntmintomax" onClick={() => setSortType("puntmintomax")}>
+        <button className="puntmintomax" key="puntmintomax" onClick={() => setSortType("puntmintomax")}>
           Sort Puntuation Asc
         </button>
-        <button className="puntmaxtomin" onClick={() => setSortType("puntmaxtomin")}>
+        <button className="puntmaxtomin" key="puntmaxtomin" onClick={() => setSortType("puntmaxtomin")}>
           Sort Puntuation Desc
         </button>
       </div>
       {/* Dietas */}
-      <div className="Diets">
-      <button className="vegetarian" onClick={() => setDietFilter(["vegetarian"])}>
+      <div className="Diets" key="Diets">
+      <button className="vegetarian" key="vegetarian" onClick={() => setDietFilter(["vegetarian"])}>
         Vegetarian
       </button>
-      <button className="vegan" onClick={() => setDietFilter(["vegan"])}>
+      <button className="vegan" key="vegan" onClick={() => setDietFilter(["vegan"])}>
         Vegan
       </button>
-      <button className="primal" onClick={() => setDietFilter(["primal"])}>
+      <button className="primal" key="primal" onClick={() => setDietFilter(["primal"])}>
         Primal
       </button>
-      <button className="gluten-free" onClick={() => setDietFilter(["gluten"])}>
+      <button className="gluten-free" key="gliten-free" onClick={() => setDietFilter(["gluten"])}>
         Gluten-Free
       </button>
-      <button className="lacto-vegetarian" onClick={() => setDietFilter(["lacto"])}>
+      <button className="lacto-vegetarian" key="lacto-vegetarian" onClick={() => setDietFilter(["lacto"])}>
         Lacto-Veg
       </button>
-      <button className="ovo-vegetarian" onClick={() => setDietFilter(["ovo"])}>
+      <button className="ovo-vegetarian" key="ovo-vegetarian" onClick={() => setDietFilter(["ovo"])}>
         Ovo-Veg
       </button>
-      <button className="pescetarian" onClick={() => setDietFilter(["pescetarian"])}>
+      <button className="pescetarian" key="pescetarian" onClick={() => setDietFilter(["pescetarian"])}>
         Pescetarian
       </button>
-      <button className="whole-30" onClick={() => setDietFilter(["whole 30"])}>
+      <button className="whole-30" key="whole-30" onClick={() => setDietFilter(["whole 30"])}>
         Whole-30
       </button>
-      <button className="ketogenic" onClick={() => setDietFilter(["ketogenic"])}>
+      <button className="ketogenic" key="ketogenic" onClick={() => setDietFilter(["ketogenic"])}>
         Ketogenic
       </button>
-      <button className="paleo" onClick={() => setDietFilter(["paleo"])}>
+      <button className="paleo" key="paleo" onClick={() => setDietFilter(["paleo"])}>
         Paleo
       </button>
-      <button className="default" onClick={() => setDietFilter([])}>
+      <button className="default" key="default" onClick={() => setDietFilter([])}>
         None
       </button>
       </div>
-
-      <div className="recipe-container">
+      <div className="recipe-container" key="recipe-container">
         {Array.isArray(currentRecipes) ? (
           currentRecipes.map((recipe) => (
             <Recipe
@@ -137,6 +136,7 @@ function Recipes({ recipes }) {
               id={recipe.id}
               img={recipe.img}
               diet={recipe.diet}
+              key={recipe.id}
             />
           ))
         ) : (

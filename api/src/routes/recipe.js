@@ -38,10 +38,10 @@ router.post('/', function(req, res){
             }
         })
 
-        res.send("Receta Creada correctamente")
+        res.send("200")
     }
     else{
-        res.send("Los datos ingresados son incorrectos o falta algun dato")
+        res.send("400")
     }
     }
 )

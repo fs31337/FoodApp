@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearRecipeResponse, createRecipe } from "../../actions/actions.js";
+import { createRecipe } from "../../actions/actions.js";
 
 function CreateRecipe() {
   const dispatch = useDispatch();
   const response = useSelector((state) => state.createRecipeResponse);
-
   const [state, setState] = useState({
     name: "",
     resume: "",
@@ -14,8 +13,7 @@ function CreateRecipe() {
     stepbystep: "",
     diet: [],
   });
-
-  let [diets, setDiets] = useState({
+  const initialState = {
     "Vegetarian": false,
     "Vegan": false,
     "Ketogenic": false,
@@ -26,7 +24,8 @@ function CreateRecipe() {
     "Primal":false,
     "Whole":false,
     "Gluten Free":false,
-  });
+  }
+  let [diets, setDiets] = useState(initialState);
 
   let checkboxClick = (e) => {
     let { name, checked } = e.target;
@@ -35,7 +34,6 @@ function CreateRecipe() {
       [name]: checked,
     });
   };
-
   let mostrarDietas = Object.keys(diets).filter((x) => diets[x]);
 
   const handleInputChange = (e) => {
@@ -46,12 +44,17 @@ function CreateRecipe() {
   };
 
   function handleSubmit(e) {
-    //controlar que al menos un check este seleccionado
-    setState((state.diet = mostrarDietas));
-    dispatch(createRecipe(state));
-    e.preventDefault();
-    clearState();
-  }
+    if(mostrarDietas.length<1){
+      alert("Debes seleccionar al menos una Dieta")
+    }
+    if(mostrarDietas.length>=1){
+      setState((state.diet = mostrarDietas));
+      dispatch(createRecipe(state));
+      e.preventDefault();
+      clearState();
+      setDiets(initialState);
+      }
+    }
 
   function clearState() {
     setState({
@@ -63,16 +66,13 @@ function CreateRecipe() {
       diet: [],
     });
   }
-  // if (response !== undefined) {
-    //   alert(response);
-  // }
-
     return (
       <div className="form-container">
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
         <p>Ingresa un nombre para tu receta</p>
         <input
           name="name"
+          key="name"
           className="input-nombre"
           placeholder="Nombre..."
           type="text"
@@ -84,6 +84,7 @@ function CreateRecipe() {
         <p>Ingresa un resumen de tu receta</p>
         <input
           name="resume"
+          key="resume"
           className="input-resume"
           placeholder="Resumen..."
           type="text"
@@ -95,6 +96,7 @@ function CreateRecipe() {
         <p>Ingresa un puntaje de tu receta</p>
         <input
           name="puntuation"
+          key="puntuation"
           className="input-puntuation"
           placeholder="Puntuacion..."
           type="text"
@@ -106,6 +108,7 @@ function CreateRecipe() {
         <p>Ingresa el nivel de salubridad tu receta</p>
         <input
           name="healthyLevel"
+          key="healthyLevel"
           className="input-healthy"
           placeholder="Healthy..."
           type="text"
@@ -118,6 +121,7 @@ function CreateRecipe() {
         <p>Ingresa el paso a paso tu receta</p>
         <input
           name="stepbystep"
+          key="stepbystep"
           className="input-stepbystep"
           placeholder="Paso a paso..."
           type="text"
@@ -131,98 +135,22 @@ function CreateRecipe() {
           Selecciona al menos un tipo de dieta, puedes seleccionar mas de uno
         </p>
         <div className="checkBox">
-          <input
-            name="Vegetarian"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Vegetarian"
-            onChange={checkboxClick}
-          ></input>
-          <span>Vegetarian</span>
-          <input
-            name="Vegan"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Vegan"
-            onChange={checkboxClick}
-          ></input>
-          <span>Vegan</span>
-          <input
-            name="Ketogenic"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Ketogenic"
-            onChange={checkboxClick}
-          ></input>
-          <span>Ketogenic</span>
-          <input
-            name="Gluten Free"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Gluten Free"
-            onChange={checkboxClick}
-          ></input>
-          <span>Gluten Free</span>
-          <input
-            name="Lacto-Vegetarian"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Lacto-Vegetarian"
-            onChange={checkboxClick}
-          ></input>
-          <span>Lacto-Vegetarian</span><br/>
-          <input
-            name="Ovo-Vegetarian"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Ovo-Vegetarian"
-            onChange={checkboxClick}
-          ></input>
-          <span>Ovo-Vegetarian</span>
-          <input
-            name="Pescetarian"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Pescetarian"
-            onChange={checkboxClick}
-          ></input>
-          <span>Pescetarian</span>
-          <input
-            name="Paleo"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Paleo"
-            onChange={checkboxClick}
-          ></input>
-          <span>Paleo</span>
-          <input
-            name="Primal"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Primal"
-            onChange={checkboxClick}
-          ></input>
-          <span>Primal</span>
-          <input
-            name="Whole30"
-            className="input-diet"
-            type="checkbox"
-            autoComplete="off"
-            value="Whole30"
-            onChange={checkboxClick}
-          ></input>
-          <span>Whole30</span><br/>
-          <button type="submit">Submit</button>
+        {Object.keys(diets).map((key, index) => (
+              <label key={index} htmlFor={key}>
+                <input
+                  type="checkbox"
+                  key={key}
+                  name={key}
+                  id={key}
+                  checked={diets[key]}
+                  onChange={checkboxClick}
+                />
+              <span>{key}</span>
+              </label>
+            ))}
         </div>
+        <button type="submit">Submit</button>
+      {response === "200" ? <div>Creado Correctamente</div>: response=== "400" ? <div>Error</div>:<div>Creando</div>}
       </form>
     </div>
   );
