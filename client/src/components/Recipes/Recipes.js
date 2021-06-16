@@ -5,7 +5,7 @@ import "./Recipes.scss";
 
 function Recipes({ recipes }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [recipesPerPage] = useState(2);
+  const [recipesPerPage] = useState(10);
   const [search, setSearch] = useState("");
   const [sortType, setSortType] = useState("az");
   const [dietFilter, setDietFilter] = useState([]);
@@ -112,17 +112,17 @@ function Recipes({ recipes }) {
       <button className="ovo-vegetarian" key="ovo-vegetarian" onClick={() => setDietFilter(["ovo"])}>
         Ovo-Veg
       </button>
-      <button className="pescetarian" key="pescetarian" onClick={() => setDietFilter(["pescetarian"])}>
-        Pescetarian
+      <button className="pescatarian" key="pescatarian" onClick={() => setDietFilter(["pescatarian"])}>
+        Pescatarian
       </button>
-      <button className="whole-30" key="whole-30" onClick={() => setDietFilter(["whole 30"])}>
-        Whole-30
+      <button className="dairy free" key="dairy free" onClick={() => setDietFilter(["dairy"])}>
+        Dairy Free
       </button>
       <button className="ketogenic" key="ketogenic" onClick={() => setDietFilter(["ketogenic"])}>
         Ketogenic
       </button>
-      <button className="paleo" key="paleo" onClick={() => setDietFilter(["paleo"])}>
-        Paleo
+      <button className="paleolithic" key="paleolithic" onClick={() => setDietFilter(["paleolithic"])}>
+        Paleolithic
       </button>
       <button className="default" key="default" onClick={() => setDietFilter([])}>
         None

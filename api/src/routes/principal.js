@@ -19,7 +19,7 @@ router.get("/", function (req, res) {
             puntuation:recipe.dataValues.puntuation
         }
         )))
-        axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&number=5&addRecipeInformation=true`) //ORIGINAL NUMBER=100
+        axios.get(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${KEY}&number=19&addRecipeInformation=true`) //ORIGINAL NUMBER=100
         .then((response) => {
             let nuevaResponse=[];
             response.data.results.map(data => nuevaResponse.push(

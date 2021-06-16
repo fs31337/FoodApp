@@ -1,13 +1,19 @@
 .HomePage {
-    display: flex;
-    flex-direction:column;
-    max-width: 800vh;
-    width: 200vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 800vh;
+  width: 200vh;
 }
-.recipe-container{
-    display: flex;
-    background-color: blue;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+.recipe-container {
+  transition: transform 0.25s ease-out;
+  & :hover  {
+    transform: scale(1.05);
+    img{ border-radius:50px;}
+  }
+  width: 85vw;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
