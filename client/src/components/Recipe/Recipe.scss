@@ -15,14 +15,12 @@
     color: black;
     font-weight: bold;
     font-size: 14px;
-    text-align: center;
     margin: 10px 0 0 0;
   }
   h3 {
     color: #9a9a9a;
     font-weight: bold;
     font-size: 14px;
-    text-align: center;
     margin: 0;
   }
   img {
@@ -53,25 +51,45 @@
 }
 
 .detailRecipe{
-  img{
-    width:26.125em;
-    height: 19.625em;
-    margin-left:40px;
-    margin-top:110px;
-    grid-area: title;
-  }
+  grid-auto-flow: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "title title "
+    "image data"
+    "data2 data2";
   border-radius: 47px;
   background-color: whitesmoke;
   width: 65.5em;
   height: 40.875em;
 }
+.data{
+  grid-area: data;
+  // display: flex;
+  // flex-wrap: wrap;
+}
+.data2{
+  grid-area: data2;
+}
+.image{
+  grid-area: image;
+  width: 25.625em;
+  height: 18.5681em;
+  max-width: 25.625em;
+  max-height: 18.5681em;
+  margin-left:40px;
+  margin-top:10px;
+  border-radius: 10px;
+}
+.title{
+  grid-area: title;
+  margin-left:10px;
+  margin-top:10px;
+}
 .detailRecipeContainer{
-  grid-auto-flow: row;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "title title"
-    ". .";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

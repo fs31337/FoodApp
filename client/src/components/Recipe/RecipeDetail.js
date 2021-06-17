@@ -26,8 +26,6 @@ function RecipeDetail() {
           <div className="title">
             <h1>{recipeDetail[0].title}</h1>
           </div>
-          <div className="image-data"></div>
-            <img className="image" src={recipeDetail[0].img} alt="img detail"></img>
           <div className="data">
             <span>Type: </span>
             <h2>{recipeDetail[0].type}</h2>
@@ -37,11 +35,15 @@ function RecipeDetail() {
             <h5>{recipeDetail[0].puntuation}</h5>
             <span>Health Score: </span>
             <h5>{recipeDetail[0].healthScore}</h5>
-            <span>Resume: </span>
-            <p>{recipeDetail[0].resume}</p>
-            <span>Step By Step: </span>
-            <p>{recipeDetail[0].stepbystep}</p>
           </div>
+          <div className="data2">
+              <span>Resume: </span>
+              <p>{recipeDetail[0].resume}</p>
+              <span>Step By Step: </span>
+              <p>{recipeDetail[0].stepbystep}</p>
+          </div>
+          <div className="image"></div>
+            <img className="image" src={recipeDetail[0].img} alt="img detail"></img>
         </div>
       </div>
     );
