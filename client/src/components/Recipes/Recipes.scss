@@ -5,15 +5,87 @@
   width: 200vh;
 }
 .recipe-container {
-  transition: transform 0.25s ease-out;
+  transition: transform 1s ease-out;
   & :hover  {
     transform: scale(1.05);
-    img{ border-radius:50px;}
+    img{ transform:scale(1)}
+    transition:1s;
   }
   width: 85vw;
   margin: 0 auto;
   margin-top: 50px;
   display: grid;
+//   grid-template-columns: repeat(auto-fit,minmax(13vw,1fr));
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+}
+.sort{
+    display: flex;
+    margin-left: 10px;
+    button{
+            background: #56EDA4;
+            color: white;
+            margin-left: 10px;
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            font: inherit;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            & :active {
+                width: 70px;
+                height: 74px;
+            }
+    }
+}
+.Diets{
+    display: flex;
+    button{
+        box-shadow: -8px 9px 14px -2px rgba(0, 0, 0, 0.25);
+            background: #ED6856;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            margin:0 20px 0 20px;
+            font: inherit;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            :hover{
+                background:white;
+            }
+            & :active {
+                width: 70px;
+                height: 74px;
+            }
+    }
+}
+.search-input{
+    padding-left: 10px;
+    width: 43.125em;
+    height: 3.75em;
+    border-radius: 50px;
+    border: none;
+}
+.Search-Filters{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Search-Sort{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -50px;
+    margin-bottom: 20px;
+}
+.Recipes-Pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

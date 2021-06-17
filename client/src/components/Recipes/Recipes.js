@@ -9,7 +9,6 @@ function Recipes({ recipes }) {
   const [search, setSearch] = useState("");
   const [sortType, setSortType] = useState("az");
   const [dietFilter, setDietFilter] = useState([]);
-
   //SearchFilter
 
   function filteredRecipes(recipes) {
@@ -43,7 +42,6 @@ function Recipes({ recipes }) {
     }
   }
 
-
   //Sort
   const sorted = filteredbyDiet(recipes).sort((a, b) => {
     if (sortType === "az" || sortType === "za") {
@@ -71,83 +69,89 @@ function Recipes({ recipes }) {
 
   return (
     <div className="HomePage">
-      <input
-        type="text"
-        className="search-input"
-        placeholder="Search Recipe..."
-        value={search}
-        onChange={onSearchChange}
-      />
-      <div className="sort" key="sort">
-        <button key="azButton" className="azButton" onClick={() => setSortType("az")}>
-          Sort Name Asc
-        </button>
-        <button className="zaButton" key="zaButton" onClick={() => setSortType("za")}>
-          Sort Name Desc
-        </button>
-        <button className="puntmintomax" key="puntmintomax" onClick={() => setSortType("puntmintomax")}>
-          Sort Puntuation Asc
-        </button>
-        <button className="puntmaxtomin" key="puntmaxtomin" onClick={() => setSortType("puntmaxtomin")}>
-          Sort Puntuation Desc
-        </button>
+      <div className="Search-Filters">
+        <div className="Search-Sort">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search Recipe..."
+            value={search}
+            onChange={onSearchChange}
+          />
+          <div className="sort" key="sort">
+            <button key="azButton" className="azButton" onClick={() => setSortType("az")}>
+              Sort Name Asc
+            </button>
+            <button className="zaButton" key="zaButton" onClick={() => setSortType("za")}>
+              Sort Name Desc
+            </button>
+            <button className="puntmintomax" key="puntmintomax" onClick={() => setSortType("puntmintomax")}>
+              Sort Puntuation Asc
+            </button>
+            <button className="puntmaxtomin" key="puntmaxtomin" onClick={() => setSortType("puntmaxtomin")}>
+              Sort Puntuation Desc
+            </button>
+          </div>
+        </div>
+        {/* Dietas */}
+          <div className="Diets" key="Diets">
+          <button className="vegetarian" key="vegetarian" onClick={() => setDietFilter(["vegetarian"])}>
+            Vegetarian
+          </button>
+          <button className="vegan" key="vegan" onClick={() => setDietFilter(["vegan"])}>
+            Vegan
+          </button>
+          <button className="primal" key="primal" onClick={() => setDietFilter(["primal"])}>
+            Primal
+          </button>
+          <button className="gluten-free" key="gliten-free" onClick={() => setDietFilter(["gluten"])}>
+            Gluten-Free
+          </button>
+          <button className="lacto-vegetarian" key="lacto-vegetarian" onClick={() => setDietFilter(["lacto"])}>
+            Lacto-Veg
+          </button>
+          <button className="ovo-vegetarian" key="ovo-vegetarian" onClick={() => setDietFilter(["ovo"])}>
+            Ovo-Veg
+          </button>
+          <button className="pescatarian" key="pescatarian" onClick={() => setDietFilter(["pescatarian"])}>
+            Pescatarian
+          </button>
+          <button className="dairy free" key="dairy free" onClick={() => setDietFilter(["dairy"])}>
+            Dairy Free
+          </button>
+          <button className="ketogenic" key="ketogenic" onClick={() => setDietFilter(["ketogenic"])}>
+            Ketogenic
+          </button>
+          <button className="paleolithic" key="paleolithic" onClick={() => setDietFilter(["paleolithic"])}>
+            Paleolithic
+          </button>
+          <button className="default" key="default" onClick={() => setDietFilter([])}>
+            None
+          </button>
+        </div>
       </div>
-      {/* Dietas */}
-      <div className="Diets" key="Diets">
-      <button className="vegetarian" key="vegetarian" onClick={() => setDietFilter(["vegetarian"])}>
-        Vegetarian
-      </button>
-      <button className="vegan" key="vegan" onClick={() => setDietFilter(["vegan"])}>
-        Vegan
-      </button>
-      <button className="primal" key="primal" onClick={() => setDietFilter(["primal"])}>
-        Primal
-      </button>
-      <button className="gluten-free" key="gliten-free" onClick={() => setDietFilter(["gluten"])}>
-        Gluten-Free
-      </button>
-      <button className="lacto-vegetarian" key="lacto-vegetarian" onClick={() => setDietFilter(["lacto"])}>
-        Lacto-Veg
-      </button>
-      <button className="ovo-vegetarian" key="ovo-vegetarian" onClick={() => setDietFilter(["ovo"])}>
-        Ovo-Veg
-      </button>
-      <button className="pescatarian" key="pescatarian" onClick={() => setDietFilter(["pescatarian"])}>
-        Pescatarian
-      </button>
-      <button className="dairy free" key="dairy free" onClick={() => setDietFilter(["dairy"])}>
-        Dairy Free
-      </button>
-      <button className="ketogenic" key="ketogenic" onClick={() => setDietFilter(["ketogenic"])}>
-        Ketogenic
-      </button>
-      <button className="paleolithic" key="paleolithic" onClick={() => setDietFilter(["paleolithic"])}>
-        Paleolithic
-      </button>
-      <button className="default" key="default" onClick={() => setDietFilter([])}>
-        None
-      </button>
+      <div className="Recipes-Pagination">
+        <div className="recipe-container" key="recipe-container">
+            {Array.isArray(currentRecipes) ? (
+              currentRecipes.map((recipe) => (
+                <Recipe
+                  title={recipe.title}
+                  id={recipe.id}
+                  img={recipe.img}
+                  diet={recipe.diet}
+                  key={recipe.id}
+                />
+              ))
+            ) : (
+              <h1>Cargando...</h1>
+            )}
+        </div>
+        <Pagination
+            recipesPerPage={recipesPerPage}
+            totalRecipes={sorted.length}
+            paginate={paginate}
+          />
       </div>
-      <div className="recipe-container" key="recipe-container">
-        {Array.isArray(currentRecipes) ? (
-          currentRecipes.map((recipe) => (
-            <Recipe
-              title={recipe.title}
-              id={recipe.id}
-              img={recipe.img}
-              diet={recipe.diet}
-              key={recipe.id}
-            />
-          ))
-        ) : (
-          <h1>Cargando...</h1>
-        )}
-      </div>
-      <Pagination
-        recipesPerPage={recipesPerPage}
-        totalRecipes={sorted.length}
-        paginate={paginate}
-      />
     </div>
   );
 }
