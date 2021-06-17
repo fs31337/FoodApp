@@ -17,7 +17,7 @@
   display: grid;
 //   grid-template-columns: repeat(auto-fit,minmax(13vw,1fr));
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 30px;
 }
 .sort{
     display: flex;
@@ -34,10 +34,6 @@
             font-size: 11px;
             font-weight: bold;
             cursor: pointer;
-            & :active {
-                width: 70px;
-                height: 74px;
-            }
     }
 }
 .Diets{
@@ -55,14 +51,12 @@
             font-size: 13px;
             font-weight: bold;
             cursor: pointer;
-            :hover{
-                background:white;
+        }
+        .vegetarian {
+            :hover {
+                transform :scale(1.5px)
             }
-            & :active {
-                width: 70px;
-                height: 74px;
-            }
-    }
+        }
 }
 .search-input{
     padding-left: 10px;
