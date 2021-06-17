@@ -29,6 +29,10 @@ function RecipeDetail() {
     return (
       <div className="detailRecipeContainer">
         <div className= "detailRecipe">
+        <div className="data-resume">
+                <span>Resume: </span>
+                {recipeDetail[0].resume?<p>{shorten(recipeDetail[0].resume.replace(/(<([^>]+)>)/ig, ''))}</p>:<p>No hay Resumen</p>}
+            </div>
           <div className="title">
             <h1>{recipeDetail[0].title}</h1>
           </div>
@@ -48,10 +52,6 @@ function RecipeDetail() {
             <div className="data-health">
               <span>Health Score: </span>
               <h5>{recipeDetail[0].healthScore}</h5>
-            </div>
-            <div className="data-resume">
-                <span>Resume: </span>
-                {recipeDetail[0].resume?<p>{shorten(recipeDetail[0].resume.replace(/(<([^>]+)>)/ig, ''))}</p>:<p>No hay Resumen</p>}
             </div>
           </div>
           <div className="data2">
