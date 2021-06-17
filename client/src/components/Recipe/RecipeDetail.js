@@ -27,20 +27,30 @@ function RecipeDetail() {
             <h1>{recipeDetail[0].title}</h1>
           </div>
           <div className="data">
-            <span>Type: </span>
-            <h2>{recipeDetail[0].type}</h2>
-            <span>Diets: </span>
-            <h3>{recipeDetail[0].diets}</h3>
-            <span>Puntuation: </span>
-            <h5>{recipeDetail[0].puntuation}</h5>
-            <span>Health Score: </span>
-            <h5>{recipeDetail[0].healthScore}</h5>
+            <div className="data-type">
+              <span>Type: </span>
+              <h3>{recipeDetail[0].type}</h3>
+            </div>
+            <div className="data-diets">
+              <span>Diets: </span>
+              <h3>{recipeDetail[0].diets}</h3>
+            </div>
+            <div className="data-puntuation">
+              <span>Puntuation: </span>
+              <h5>{recipeDetail[0].puntuation}</h5>
+            </div>
+            <div className="data-health">
+              <span>Health Score: </span>
+              <h5>{recipeDetail[0].healthScore}</h5>
+            </div>
+            <div className="data-resume">
+                <span>Resume: </span>
+                <p>{recipeDetail[0].resume.replace(/(<([^>]+)>)/ig, '')}</p>
+            </div>
           </div>
           <div className="data2">
-              <span>Resume: </span>
-              <p>{recipeDetail[0].resume}</p>
               <span>Step By Step: </span>
-              <p>{recipeDetail[0].stepbystep}</p>
+              <p>{recipeDetail[0].stepbystep.replace(/(<([^>]+)>)/ig, '')}</p>
           </div>
           <div className="image"></div>
             <img className="image" src={recipeDetail[0].img} alt="img detail"></img>

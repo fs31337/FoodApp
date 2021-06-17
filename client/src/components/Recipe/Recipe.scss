@@ -49,7 +49,6 @@
     height: 100%;
   }
 }
-
 .detailRecipe{
   grid-auto-flow: column;
   display: grid;
@@ -64,14 +63,45 @@
   background-color: whitesmoke;
   width: 65.5em;
   height: 40.875em;
+  margin-top: 40px;
 }
 .data{
+  margin-left: -30px;
   grid-area: data;
-  // display: flex;
-  // flex-wrap: wrap;
+  grid-auto-flow: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "datatype datadiets "
+    "datahealth datapuntuation"
+    "dataresume dataresume";
+    .data-type{
+      grid-area: datatype;
+    }
+    .data-title{
+      grid-area: datadiets;
+    }
+    .data-health{
+      grid-area: datahealth;
+    }
+    .data-puntuation{
+      grid-area: datapuntuation;
+    }
+    .data-resume{
+      grid-area: dataresume;
+      margin-right: 30px;
+      text-align: justify;
+    }
 }
 .data2{
+  text-align: justify;
   grid-area: data2;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  padding: 30px;
 }
 .image{
   grid-area: image;
@@ -87,9 +117,12 @@
   grid-area: title;
   margin-left:10px;
   margin-top:10px;
+  margin-bottom:10px;
 }
 .detailRecipeContainer{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+
