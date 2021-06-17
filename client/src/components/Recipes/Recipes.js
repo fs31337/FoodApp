@@ -7,7 +7,7 @@ function Recipes({ recipes }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(10);
   const [search, setSearch] = useState("");
-  const [sortType, setSortType] = useState("az");
+  const [sortType, setSortType] = useState("");
   const [dietFilter, setDietFilter] = useState([]);
   //SearchFilter
 

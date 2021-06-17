@@ -4,12 +4,14 @@
     align-items: center;
     justify-content: center;
     width: 35em;
-    height: 45em;
-    background-color: white;
+    height: 47em;
+    background-color:#F4CBCB;
     border-radius: 30px;
+    color:#CC5C5C;
+    font-style: bold;
     h1{
-        margin-top: 50px;
-        color: indianred;
+        margin-top: 60px;
+        color: #CC5C5C;
         font-family: Sansita One;
     }
 }
@@ -24,32 +26,43 @@
     margin-top: -10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-items:center ;
     width: 20em;
     input{
+        width: 350px;
         border-radius: 30px;
         border: none;
-        background-color:rgb(230, 210, 210);
-        height: 30px;
+        background-color:white;
+        height: 40px;
+        text-align: center;
     }
     .submitButton{
         margin-top: 10px;
         border:none;
-        background-color: rgb(118, 248, 118);
+        background-color: rgb(167, 233, 167);
         border-radius: 30px;
         height: 50px;
+        width: 100px;
         cursor: pointer;
+        transition:1s;
+            &:hover{
+                transform: scale(1.5); background-color: rgb(99, 251, 99);
+            }
+        }
     }
-}
+
 .checkBox{
-    background-color:rgb(230, 210, 210) ;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(50px,5fr));
+    background-color:white;
     border-radius: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: center;
+    width: 505px;
+    height: 100px;
     label{
-        display: flex;
-        align-content: center;
-        justify-content: center;
-    }
+        display: inline-block;
+        input{
+            width: 20px;
+        }
+}
 }

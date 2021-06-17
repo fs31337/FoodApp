@@ -39,7 +39,7 @@ function RecipeDetail() {
             </div>
             <div className="data-diets">
               <span>Diets: </span>
-              <h3>{recipeDetail[0].diets}</h3>
+              <h3>{recipeDetail[0].diets.join(", ")}</h3>
             </div>
             <div className="data-puntuation">
               <span>Puntuation: </span>

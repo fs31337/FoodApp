@@ -31,22 +31,22 @@ conn.sync({ force: true })
       name: "Gluten Free"
     });
     var Ketogenic = Diet_type.create({
-      name: "Ketogenic"
+      name: "Keto"
     });
     var Vegetarian = Diet_type.create({
-      name: "Vegetarian"
+      name: "Veg"
     });
     var Lacto_Vegetarian = Diet_type.create({
-      name: "Lacto-Vegetarian"
+      name: "Lacto-Veg"
     });
     var Ovo_Vegetarian = Diet_type.create({
-      name: "Ovo-Vegetarian"
+      name: "Ovo-Veg"
     });
     var Vegan = Diet_type.create({
       name: "Vegan"
     });
     var Pescetarian = Diet_type.create({
-      name: "Pescetarian"
+      name: "Pescet"
     });
     var Paleo = Diet_type.create({
       name: "Paleo"
@@ -55,7 +55,7 @@ conn.sync({ force: true })
       name: "Primal"
     });
     var Whole30 = Diet_type.create({
-      name: "Whole30"
+      name: "Whole"
     });
     var DemoRecipe = Recipe.create({
       id: "a98383ivjidj9239283idjf",

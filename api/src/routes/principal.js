@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
     Recipe.findAll({include:[Diet_type]})
     .then(response => response.map((recipe) => recipesDb.push(
         {
-            img: recipe.dataValues.img,
+            img: "https://image.freepik.com/vector-gratis/dibujos-animados-kid-cook_10308-227.jpg",
             title: recipe.dataValues.name,
             diet: recipe.dataValues.diet_types,
             id: recipe.dataValues.id,

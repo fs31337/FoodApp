@@ -12,12 +12,12 @@ function CreateRecipe() {
     diet: [],
   });
   const initialState = {
-    "Vegetarian": false,
+    "Veg": false,
     "Vegan": false,
-    "Ketogenic": false,
-    "Lacto-Vegetarian":false,
-    "Ovo-Vegetarian":false,
-    "Pescetarian":false,
+    "Keto": false,
+    "Lacto-Veg":false,
+    "Ovo-Veg":false,
+    "Pescet":false,
     "Paleo":false,
     "Primal":false,
     "Whole":false,
@@ -73,7 +73,7 @@ function CreateRecipe() {
         <div className="form-container">
         <h1>Create a Recipe!</h1>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
-            <p>Ingresa un nombre para tu receta</p>
+            <p>Enter a name for your recipe</p>
             <input
               name="name"
               key="name"
@@ -85,7 +85,7 @@ function CreateRecipe() {
               value={state.name}
               required
             ></input>
-            <p>Ingresa un resumen de tu receta</p>
+            <p>Enter a resume of your recipe</p>
             <input
               name="resume"
               key="resume"
@@ -97,7 +97,7 @@ function CreateRecipe() {
               onChange={(e) => handleInputChange(e)}
               required
             ></input>
-            <p>Ingresa un puntaje de tu receta</p>
+            <p>Enter a score of your recipe</p>
             <input
               type="number"
               min="1"
@@ -112,7 +112,7 @@ function CreateRecipe() {
               onChange={(e) => handleInputChange(e)}
               required
             ></input>
-            <p>Ingresa el nivel de salubridad tu receta</p>
+            <p>Enter a healthy-level of your recipe</p>
             <input
               name="healthyLevel"
               key="healthyLevel"
@@ -128,7 +128,7 @@ function CreateRecipe() {
               onChange={(e) => handleInputChange(e)}
               required
             ></input>
-            <p>Ingresa el paso a paso tu receta</p>
+            <p>Enter the step by step of your recipe</p>
             <input
               name="stepbystep"
               key="stepbystep"
@@ -142,10 +142,10 @@ function CreateRecipe() {
               required
             ></input>
             <p>
-              Selecciona al menos un tipo de dieta, puedes seleccionar mas de uno
+              Select at least one diet type, you can choice more than one!
             </p>
             <div className="checkBox">
-            {Object.keys(diets).map((key, index) => (
+              {Object.keys(diets).map((key, index) => (
                   <label key={index} htmlFor={key}>
                     <input
                       type="checkbox"

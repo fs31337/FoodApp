@@ -3,6 +3,7 @@ const axios = require("axios").default;
 const { Router } = require("express");
 const router = Router();
 const { Recipe } = require("../db.js");
+const { Diet_type } = require("../db.js");
 const { KEY } = process.env;
 
 let letras="abcdefghyjklmnñopqrstuvwxyz";
@@ -38,23 +39,25 @@ router.get("/:id", function (req, res) {
         .catch((err) => {return res.sendStatus(404)});
     }
   else{
-    Recipe.findOne({ where: { id: id } })
+    Recipe.findOne({ where: { id: id },include:[Diet_type] })
     .then(response =>{
         let respuesta = response;
       if(!respuesta){
-           return res.sendStatus(404)
+           return res.sendStatus(404);
       }
       else{
           let resp = {
-             img : "https://www.tefal.com.ar/wp-content/uploads/2020/09/tf_web_nuevassecciones_cookclean_grill.jpg",
+            img : "https://image.freepik.com/vector-gratis/dibujos-animados-kid-cook_10308-227.jpg",
             title : respuesta.dataValues.name,
             resume: respuesta.dataValues.resume,
             puntuation: respuesta.dataValues.puntuation,
             healthScore: respuesta.dataValues.healthyLevel,
             stepbystep: respuesta.dataValues.stepbystep,
-        }
+            diets: respuesta.dataValues.diet_types.map(d => d.dataValues.name),
+          }
           return res.send([resp])
-      }})}
+      }
+    })}
 });
 
 module.exports = router;
