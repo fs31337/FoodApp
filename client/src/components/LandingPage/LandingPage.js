@@ -5,7 +5,7 @@ import './LandingPage.scss';
 function LandingPage() {
     return (
             <div className="LandingPage">
-                <Link to={`/principal`} >
+                <Link  to={`/principal`} >
                     <button className="Receta">Busca una Receta</button>
                 </Link>
             </div>
