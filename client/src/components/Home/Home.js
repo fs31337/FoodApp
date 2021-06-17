@@ -1,7 +1,7 @@
 import { useDispatch,useSelector }  from 'react-redux';
 import { React, useEffect } from 'react';
 import getAllRecipes  from '../../actions/actions';
-import "./Home.css";
+import "./Home.scss";
 import Recipes from '../Recipes/Recipes';
 
 

@@ -5,7 +5,7 @@ import './Nav.scss'
 function LogoButton() {
     return (
         <div>
-            <Link to={`/`} className="foods-Button">{<h1>Foods</h1>}</Link>
+            <Link to={`/principal`} className="foods-Button">{<h1>Foods</h1>}</Link>
         </div>
     )
 }

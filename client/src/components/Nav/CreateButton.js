@@ -5,7 +5,7 @@ import './Nav.scss'
 function CreateButton() {
     return (
         <div>
-            <Link to={`/recipe`} className="create-Recipe">{<h1>Create Recipe</h1>}</Link>
+            <Link to={`principal/recipe`} className="create-Recipe">{<h1>Create Recipe</h1>}</Link>
         </div>
     )
 }
