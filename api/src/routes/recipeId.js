@@ -46,7 +46,7 @@ router.get("/:id", function (req, res) {
       }
       else{
           let resp = {
-            // img : respuesta.dataValues.img, PONER ALGUNA IMAGEN POR DEFECTO
+             img : "https://www.tefal.com.ar/wp-content/uploads/2020/09/tf_web_nuevassecciones_cookclean_grill.jpg",
             title : respuesta.dataValues.name,
             resume: respuesta.dataValues.resume,
             puntuation: respuesta.dataValues.puntuation,

@@ -15,6 +15,12 @@ function RecipeDetail() {
     }
   }, [dispatch, id])
 
+  function shorten(str, maxLen, separator = ' ') {
+    maxLen = 1000;
+    if (str.length <= maxLen) return str;
+    return str.substr(0, str.lastIndexOf(separator, maxLen));
+  }
+
   if (recipeDetail === null) {
     return (<h1>Receta no encontrada</h1>)
   } else if (recipeDetail === undefined) {
@@ -45,12 +51,12 @@ function RecipeDetail() {
             </div>
             <div className="data-resume">
                 <span>Resume: </span>
-                <p>{recipeDetail[0].resume.replace(/(<([^>]+)>)/ig, '')}</p>
+                {recipeDetail[0].resume?<p>{shorten(recipeDetail[0].resume.replace(/(<([^>]+)>)/ig, ''))}</p>:<p>No hay Resumen</p>}
             </div>
           </div>
           <div className="data2">
               <span>Step By Step: </span>
-              <p>{recipeDetail[0].stepbystep.replace(/(<([^>]+)>)/ig, '')}</p>
+              {recipeDetail[0].stepbystep?<p>{shorten(recipeDetail[0].stepbystep.replace(/(<([^>]+)>)/ig, ''))}</p>:<p>There is no step by step</p>}
           </div>
           <div className="image"></div>
             <img className="image" src={recipeDetail[0].img} alt="img detail"></img>
