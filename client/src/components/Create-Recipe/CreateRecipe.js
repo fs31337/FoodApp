@@ -103,7 +103,6 @@ function CreateRecipe() {
           name="puntuation"
           key="puntuation"
           className="input-puntuation"
-          placeholder="Puntuacion..."
           autoComplete="off"
           value={state.puntuation}
           onChange={(e) => handleInputChange(e)}

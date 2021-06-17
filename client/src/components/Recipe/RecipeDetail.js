@@ -21,21 +21,28 @@ function RecipeDetail() {
     return (<h1>Cargando...</h1>)
   } else {
     return (
-      <div>
-        <img src={recipeDetail[0].img} alt="img detail"></img>
-        <h1>{recipeDetail[0].title}</h1>
-        <span>Type: </span>
-        <h2>{recipeDetail[0].type}</h2>
-        <span>Diets: </span>
-        <h3>{recipeDetail[0].diets}</h3>
-        <span>Puntuation: </span>
-        <h5>{recipeDetail[0].puntuation}</h5>
-        <span>Health Score: </span>
-        <h5>{recipeDetail[0].healthScore}</h5>
-        <span>Resume: </span>
-        <p>{recipeDetail[0].resume}</p>
-        <span>Step By Step: </span>
-        <p>{recipeDetail[0].stepbystep}</p>
+      <div className="detailRecipeContainer">
+        <div className= "detailRecipe">
+          <div className="title">
+            <h1>{recipeDetail[0].title}</h1>
+          </div>
+          <div className="image-data"></div>
+            <img className="image" src={recipeDetail[0].img} alt="img detail"></img>
+          <div className="data">
+            <span>Type: </span>
+            <h2>{recipeDetail[0].type}</h2>
+            <span>Diets: </span>
+            <h3>{recipeDetail[0].diets}</h3>
+            <span>Puntuation: </span>
+            <h5>{recipeDetail[0].puntuation}</h5>
+            <span>Health Score: </span>
+            <h5>{recipeDetail[0].healthScore}</h5>
+            <span>Resume: </span>
+            <p>{recipeDetail[0].resume}</p>
+            <span>Step By Step: </span>
+            <p>{recipeDetail[0].stepbystep}</p>
+          </div>
+        </div>
       </div>
     );
   }

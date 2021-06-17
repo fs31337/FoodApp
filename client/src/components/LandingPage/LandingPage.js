@@ -1,13 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './LandingPage.scss';
 
 function LandingPage() {
     return (
-
-            <Link className="LandingPage" to={`/principal`}>
-                 <button className="Receta">Busca una Receta</button>
-                 <img alt="Imagen fondo 2"></img>
-            </Link>
+            <div className="LandingPage">
+                <Link to={`/principal`} >
+                    <button className="Receta">Busca una Receta</button>
+                </Link>
+            </div>
     )
 }
 
