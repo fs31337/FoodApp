@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, React } from "react";
 import { getRecipeDetail, clearRecipe } from "../../actions/actions";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 function RecipeDetail() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function RecipeDetail() {
   if (recipeDetail === null) {
     return (<h1>Receta no encontrada</h1>)
   } else if (recipeDetail === undefined) {
-    return (<h1>Cargando...</h1>)
+    return (<Loader/>)
   } else {
     return (
       <div className="detailRecipeContainer">
