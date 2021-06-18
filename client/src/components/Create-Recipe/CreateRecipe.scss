@@ -5,9 +5,14 @@
     justify-content: center;
     width: 35em;
     height: 47em;
-    background-color:#F4CBCB;
+    background: rgba( 255, 255, 255, 0.20 );
+box-shadow: 0 8px 32px 0 rgba(102, 93, 90, 0.37);
+backdrop-filter: blur( 7.0px );
+-webkit-backdrop-filter: blur( 7.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-radius: 30px;
-    color:#CC5C5C;
+    color:#5f1818;
     font-style: bold;
     h1{
         margin-top: 60px;
