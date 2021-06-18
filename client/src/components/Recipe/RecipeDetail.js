@@ -10,7 +10,7 @@ function RecipeDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getRecipeDetail(id))
+    if(id!=="recipe") dispatch(getRecipeDetail(id))
     return () => {
       dispatch(clearRecipe())
     }
