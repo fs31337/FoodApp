@@ -20,6 +20,7 @@ function tiene_letras(texto) {
 
 router.get("/", function (req, res) {
   //si se usa el buscador
+  console.log(req.query,"queryy")
 if(req.query.length>0){
   const { name } = req.query;
   const nameok = name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
@@ -78,7 +79,7 @@ if(req.query.length>0){
     .catch((err) => console.log("Error getting data from API", err));
   }
   });
-  //Carga pantalla principal
+  //Busca por id
 
 router.get("/:id", function (req, res) {
   const { id } = req.params;
