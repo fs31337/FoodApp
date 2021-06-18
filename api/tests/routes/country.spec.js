@@ -18,7 +18,7 @@ const recipe2 = {
 
 };
 
-describe('Recipe routes', () => {
+xdescribe('Recipe routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
@@ -26,13 +26,13 @@ describe('Recipe routes', () => {
   beforeEach(() => Recipe.sync({ force: true })
     .then(() => Recipe.create(recipe)));
 
-  describe('GET /recipes', () => {
+  xdescribe('GET /recipes', () => {
     it('should get 200', () =>
       agent.get('/recipes').expect(200)
     );
   });
 
-  describe('/recipes?name="..."',() =>{
+  xdescribe('/recipes?name="..."',() =>{
     it('should get 9 recipes', () =>
       agent.get('/recipes?name=Rice')
       .then((res) => expect(res.body.results)));
@@ -40,7 +40,7 @@ describe('Recipe routes', () => {
       agent.get('/recipes?name=asdasdasdasdasd')
       .catch((err) => expect(err)));
 
-  describe('/recipes{idReceta}',() =>{
+  xdescribe('/recipes{idReceta}',() =>{
     it('should 1 recipe', () =>
       agent.get('/recipes/717171')
       .then((res) => expect(200)));
@@ -49,7 +49,7 @@ describe('Recipe routes', () => {
       .catch((err) => expect(err)));
   });
 
-  describe('/recipe',() =>{
+  xdescribe('/recipe',() =>{
     it('should get 200 if recipe its created', () =>
       agent.post('/recipe').send(recipe2).expect(200));
       it('should get error if recipe not found', () =>
