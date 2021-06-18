@@ -31,7 +31,7 @@ router.post('/', function(req, res){
                 puntuation:`${puntuation}`,
             })
             for (let i=0; i < diet.length;i++){
-                const dietdb = await Diet_type.findOne({ where: { name: diet[i]} }); //cambio findOne
+                const dietdb = await Diet_type.findOne({ where: { name: diet[i]} });
                 await dietdb.addRecipe(recipe);
             }
         })

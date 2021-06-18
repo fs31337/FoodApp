@@ -20,7 +20,6 @@ function tiene_letras(texto) {
 
 router.get("/", function (req, res) {
   //si se usa el buscador
-  console.log(req.query,"queryy")
 if(req.query.length>0){
   const { name } = req.query;
   const nameok = name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);

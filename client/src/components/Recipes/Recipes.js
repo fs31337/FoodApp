@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import "./Recipes.scss";
 
 function Recipes({ recipes }) {
+  console.log(recipes)
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(10);
   const [search, setSearch] = useState("");
