@@ -62,6 +62,7 @@ conn.sync({ force: true })
       name: "Burbuja",
       resume: "Burbuja (Bubbles en la versión en inglés) es una de las protagonistas de la serie animada The Powerpuff Girls, junto con sus hermanas Bombón/Pétalo y Bellota/Cactus. Ella es la alegría y la risa, siendo el pegamento emocional que une al trío de superhéroinas. Ella es el ingrediente azúcar de las tres.",
       puntuation: 777,
+      healthyLevel:88,
       diet: ["Vegan","Vegetarian"],
       img:"https://zonakidz.files.wordpress.com/2008/10/burbuja14.jpg",
     });

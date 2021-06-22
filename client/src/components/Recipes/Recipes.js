@@ -4,7 +4,7 @@ import Pagination from "./Pagination";
 import "./Recipes.scss";
 
 function Recipes({ recipes }) {
-  console.log(recipes)
+  console.log(recipes[0].healthScore.toString())
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(10);
   const [search, setSearch] = useState("");
@@ -52,7 +52,7 @@ function Recipes({ recipes }) {
       const isSorted = sortType === "puntmintomax" ? 1 : -1;
       return (
         isSorted *
-        a.puntuation.toString().localeCompare(b.puntuation.toString())
+        a.healthScore.toString().localeCompare(b.healthScore.toString(), 'en', {numeric: true})
       );
     }
   });

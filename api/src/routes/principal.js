@@ -39,13 +39,14 @@ if(req.query.length>0){
 
   let recipesDb = [];
   Recipe.findAll({ include: [Diet_type] }).then((response) =>
-    response.map((recipe) =>
+  response.map((recipe) =>
       recipesDb.push({
         img: "https://image.freepik.com/vector-gratis/dibujos-animados-kid-cook_10308-227.jpg",
         title: recipe.dataValues.name,
         diet: recipe.dataValues.diet_types,
         id: recipe.dataValues.id,
         puntuation: recipe.dataValues.puntuation,
+        healthScore : recipe.dataValues.healthyLevel ,
       })
     )
   );
@@ -62,6 +63,7 @@ if(req.query.length>0){
           diet: data.diets,
           id: data.id,
           puntuation: data.weightWatcherSmartPoints, //esto no lo muestro pero lo uso para filtar // "spoonacular score" eran todos 99 por eso uso este otro puntaje.
+          healthScore : data.healthScore,
         })
       );
       let nuevoArreglo = [];
