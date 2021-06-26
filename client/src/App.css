@@ -10,6 +10,9 @@
     background-repeat: no-repeat;
     text-align: center;
 }
+input:focus{
+  outline:none;
+}
 ::-webkit-scrollbar {
   display: none;
 }
