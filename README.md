@@ -28,7 +28,7 @@ Recipes List
 Search bar to search a Recipe by name   
 Filter options: to filter the Recipe list by diet      
 Sort options: to sort the recipes list by Name (A-Z or Z-A), Puntuation (low-high or high-low) and Health Score (low-high or high-low)  
-Pagination: to show maximum 10 recipes per page 
+Pagination: to show maximum 10 recipes per page   
 Recipe detail screen with all the details for each Meal (Title, Picture, Step by Step, Description, Healthy level and Diets)  
 Form for create new Recipes
 
