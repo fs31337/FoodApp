@@ -59,7 +59,7 @@ function CreateRecipe() {
     if(mostrarDietas.length>=1){
       e.preventDefault();
       setState((state.diet = mostrarDietas));
-      axios.post("http://localhost:3001/recipe",state)
+      axios.post("https://foodappar.herokuapp.com/recipe",state)
         .then(response =>{
             alert(response.data)
         })
