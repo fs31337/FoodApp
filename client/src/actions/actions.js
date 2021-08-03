@@ -3,7 +3,7 @@ import { SET_RECIPES,SET_RECIPE_DETAIL} from "./actionsNames";
 
  export default function getAllRecipes() {
     return (dispatch) => {
-        axios.get('https://foodappar.herokuapp.com/recipes')
+        axios.get('http://localhost:3001/recipes')
         .then(response =>{
             dispatch({type: SET_RECIPES, payload:response.data})
         })
@@ -12,7 +12,7 @@ import { SET_RECIPES,SET_RECIPE_DETAIL} from "./actionsNames";
 
  export function getRecipeDetail(id) {
     return (dispatch) => {
-        axios.get(`https://foodappar.herokuapp.com/recipes/${id}`)
+        axios.get(`http://localhost:3001/recipes/${id}`)
         .then(response =>{
             dispatch({type: SET_RECIPE_DETAIL, payload:response.data})
         }).catch((error)=> {
