@@ -61,8 +61,7 @@ function CreateRecipe() {
         icon: 'error',
         title: 'Oops...',
         text: 'Debes seleccionar al menos una Dieta!',
-        timer: 1500
-      }).then(history.push(`https://food-app-wheat.vercel.app/recipes`))
+      })
     }
     if(mostrarDietas.length>=1){
       e.preventDefault();
@@ -75,8 +74,7 @@ function CreateRecipe() {
               title: response.data,
               showConfirmButton: false,
               timer: 1500
-
-            })
+            }).then(history.push(`/`))
         })
       clearState();
       setDiets(initialState);
