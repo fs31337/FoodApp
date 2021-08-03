@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import './CreateRecipe.scss';
+import Swal from 'sweetalert2';
 
 function CreateRecipe() {
   const [state, setState] = useState({
@@ -54,14 +55,24 @@ function CreateRecipe() {
 
   function handleSubmit(e) {
     if(mostrarDietas.length<1){
-      alert("Debes seleccionar al menos una Dieta")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes seleccionar al menos una Dieta!',
+      })
     }
     if(mostrarDietas.length>=1){
       e.preventDefault();
       setState((state.diet = mostrarDietas));
       axios.post("https://foodappar.herokuapp.com/recipe",state)
         .then(response =>{
-            alert(response.data)
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: response.data,
+              showConfirmButton: false,
+              timer: 1500
+            })
         })
       clearState();
       setDiets(initialState);
