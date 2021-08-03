@@ -26,7 +26,7 @@ const {Diet_type,Recipe} = require('./src/db.js')
 // Syncing all the models at once.
 conn.sync({ force: true })
 .then(() => {
-  server.listen(3001, () => {
+  server.listen(process.env.PORT || 3001, () => {
     var GlutenFree = Diet_type.create({
       name: "Gluten Free"
     });
