@@ -69,7 +69,7 @@ conn.sync({ force: true })
     Promise.all([GlutenFree,Ketogenic,Vegetarian,Lacto_Vegetarian,Ovo_Vegetarian,Vegan,Pescetarian,Paleo,Primal,Whole30,DemoRecipe])
       .then(res =>{
         console.log("Precarga de types exitosa!!")
-      });
+      }).catch(err => console.log(err));
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
