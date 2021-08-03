@@ -61,6 +61,7 @@ function CreateRecipe() {
         icon: 'error',
         title: 'Oops...',
         text: 'Debes seleccionar al menos una Dieta!',
+        footer: 'Probemos otra vez!'
       })
     }
     if(mostrarDietas.length>=1){
@@ -74,7 +75,7 @@ function CreateRecipe() {
               title: response.data,
               showConfirmButton: false,
               timer: 1500
-            }).then(history.push(`/`))
+            })
         })
       clearState();
       setDiets(initialState);
