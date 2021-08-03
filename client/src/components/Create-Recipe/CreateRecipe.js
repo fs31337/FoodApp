@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import './CreateRecipe.scss';
 import Swal from 'sweetalert2';
+import { useHistory } from "react-router-dom";
 
 function CreateRecipe() {
+  const history = useHistory();
   const [state, setState] = useState({
     name: "",
     resume: "",
@@ -59,7 +61,8 @@ function CreateRecipe() {
         icon: 'error',
         title: 'Oops...',
         text: 'Debes seleccionar al menos una Dieta!',
-      })
+        timer: 1500
+      }).then(history.push(`https://food-app-wheat.vercel.app/recipes`))
     }
     if(mostrarDietas.length>=1){
       e.preventDefault();
@@ -72,6 +75,7 @@ function CreateRecipe() {
               title: response.data,
               showConfirmButton: false,
               timer: 1500
+
             })
         })
       clearState();
